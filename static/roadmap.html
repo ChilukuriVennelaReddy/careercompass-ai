@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CareerCompass AI | Learning Roadmap</title>
+<meta name="description" content="Follow your personalized AI Engineer learning roadmap with step-by-step progress tracking on CareerCompass AI."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                "colors": {"inverse-on-surface": "#eaf1ff","on-primary-fixed-variant": "#003ea8","surface": "#f8f9ff","surface-container-low": "#eff4ff","error-container": "#ffdad6","outline": "#737686","primary-container": "#2563eb","surface-container-high": "#dee9fc","secondary-fixed": "#e0e3e6","error": "#ba1a1a","surface-tint": "#0053db","on-surface": "#121c2a","on-tertiary-container": "#eaf0ff","on-secondary-container": "#626567","tertiary-fixed-dim": "#c0c7d6","surface-dim": "#d0dbed","secondary": "#5b5f61","background": "#f8f9ff","on-primary": "#ffffff","tertiary": "#4e5562","tertiary-container": "#666d7b","surface-container": "#e6eeff","inverse-primary": "#b4c5ff","surface-container-lowest": "#ffffff","on-tertiary-fixed": "#151c27","on-secondary": "#ffffff","surface-variant": "#d9e3f6","inverse-surface": "#27313f","on-error": "#ffffff","primary-fixed-dim": "#b4c5ff","surface-bright": "#f8f9ff","on-error-container": "#93000a","on-primary-fixed": "#00174b","on-secondary-fixed": "#191c1e","surface-container-highest": "#d9e3f6","on-background": "#121c2a","primary-fixed": "#dbe1ff","on-primary-container": "#eeefff","on-secondary-fixed-variant": "#44474a","tertiary-fixed": "#dce2f3","on-tertiary-fixed-variant": "#404754","on-tertiary": "#ffffff","secondary-container": "#e0e3e6","primary": "#004ac6","outline-variant": "#c3c6d7","on-surface-variant": "#434655","secondary-fixed-dim": "#c4c7ca"},
+                "borderRadius": {"DEFAULT": "0.25rem","lg": "0.5rem","xl": "0.75rem","full": "9999px"},
+                "spacing": {"xl": "32px","gutter": "24px","base": "4px","2xl": "48px","3xl": "64px","sm": "8px","lg": "24px","md": "16px","container-max": "1280px","xs": "4px"},
+                "fontFamily": {"label-sm": ["Inter"],"body-lg": ["Inter"],"headline-md": ["Inter"],"headline-sm": ["Inter"],"body-sm": ["Inter"],"display-lg-mobile": ["Inter"],"body-md": ["Inter"],"label-md": ["Inter"],"display-lg": ["Inter"]},
+                "fontSize": {"label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],"body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],"headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],"headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],"body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],"display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],"body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],"label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],"display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]}
+            },
+        },
+    }
+</script>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .roadmap-line { background: linear-gradient(180deg, #2563eb 0%, #e0e3e6 100%); }
+    .step-transition { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+</style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full w-[280px] hidden md:flex flex-col bg-surface border-r border-outline-variant z-40 p-lg gap-md">
+  <div class="mb-xl">
+    <a href="index.html"><h1 class="text-headline-md font-headline-md font-bold text-primary">CareerCompass AI</h1></a>
+    <p class="text-label-md font-label-md text-on-surface-variant">AI Career Partner</p>
+  </div>
+  <nav class="flex flex-col gap-2 flex-grow">
+    <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-xl" href="chat.html">
+      <span class="material-symbols-outlined">add_comment</span>
+      <span class="text-label-md font-label-md">New Chat</span>
+    </a>
+    
+    <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-xl" href="skill-gap.html">
+      <span class="material-symbols-outlined">analytics</span>
+      <span class="text-label-md font-label-md">Skill Gap</span>
+    </a>
+    <!-- Active -->
+    <a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-xl shadow-sm" href="roadmap.html">
+      <span class="material-symbols-outlined">timeline</span>
+      <span class="text-label-md font-label-md">Roadmap</span>
+    </a>
+  </nav>
+  <div class="mt-auto flex flex-col gap-2">
+    <a href="quiz.html" class="block w-full text-center bg-primary text-on-primary py-3 rounded-xl font-label-md hover:opacity-90 transition-opacity mb-4">Take AI Quiz</a>
+    <a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:text-on-surface" href="settings.html">
+      <span class="material-symbols-outlined">settings</span>
+      <span class="text-label-md font-label-md">Settings</span>
+    </a>
+    <a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:text-on-surface" href="help.html">
+      <span class="material-symbols-outlined">help</span>
+      <span class="text-label-md font-label-md">Help</span>
+    </a>
+  </div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-[280px] min-h-screen pb-2xl">
+  <!-- Header -->
+  <header class="h-16 px-gutter flex items-center justify-between sticky top-0 bg-surface/80 backdrop-blur-md z-30">
+    <h2 class="text-headline-sm font-headline-sm text-on-surface">AI Learning Path</h2>
+    
+  </header>
+  <!-- Content Area -->
+  <div class="max-w-4xl mx-auto px-gutter mt-xl">
+    <!-- Roadmap Intro Card -->
+    <section class="bg-surface-container-lowest rounded-xl p-lg border border-outline-variant mb-xl flex items-center gap-lg">
+      <div class="w-16 h-16 bg-primary-container/10 text-primary rounded-xl flex items-center justify-center">
+        <span class="material-symbols-outlined" style="font-size: 30px;">route</span>
+      </div>
+      <div class="flex-grow">
+        <h3 class="text-headline-sm font-headline-sm">Personalized AI Engineer Roadmap</h3>
+        <p class="text-body-md font-body-md text-on-surface-variant">Based on your skill gap analysis, we've optimized your journey to mastery.</p>
+      </div>
+      </section>
+    <!-- AI Generated Roadmap -->
+    <div id="ai-roadmap-loader" class="hidden flex-col items-center justify-center p-xl gap-md">
+      <span class="material-symbols-outlined animate-spin text-primary" style="font-size: 48px;">cycle</span>
+      <p class="text-body-lg text-on-surface-variant">Generating personalized roadmap using AI...</p>
+    </div>
+    <div id="ai-roadmap-container" class="relative pl-8 md:pl-16 space-y-xl">
+      <div class="p-xl bg-surface-container-low border border-outline-variant rounded-xl text-center">
+        <p class="text-body-lg text-on-surface-variant mb-4">You have not generated an AI Roadmap yet.</p>
+        <button onclick="generateRoadmap()" class="bg-primary text-on-primary px-lg py-3 rounded-xl font-bold hover:brightness-95 transition-all">Generate My Roadmap</button>
+      </div>
+    </div>
+    
+    <script>
+      async function generateRoadmap() {
+          const role = localStorage.getItem('quizRole');
+          const gapsStr = localStorage.getItem('quizGaps');
+          if (!role || !gapsStr) {
+              alert('Please take the AI Quiz first to generate a personalized roadmap!');
+              window.location.href = 'quiz.html';
+              return;
+          }
+          const gaps = JSON.parse(gapsStr);
+
+          document.getElementById('ai-roadmap-loader').classList.remove('hidden');
+          document.getElementById('ai-roadmap-loader').classList.add('flex');
+          document.getElementById('ai-roadmap-container').classList.add('hidden');
+
+          try {
+              const res = await fetch('/api/roadmap/generate', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ role, gaps })
+              });
+              if (!res.ok) throw new Error('Failed to generate roadmap');
+              const data = await res.json();
+              
+              const container = document.getElementById('ai-roadmap-container');
+              container.innerHTML = '<div class="absolute left-[23px] md:left-[31px] top-4 bottom-4 w-1 roadmap-line rounded-full opacity-30"></div>';
+
+              if (data.roadmap && data.roadmap.length > 0) {
+                  data.roadmap.forEach((step, index) => {
+                      const div = document.createElement('div');
+                      div.className = "relative group";
+                      div.innerHTML = `
+                        <div class="absolute -left-[33px] md:-left-[41px] top-1 w-6 h-6 rounded-full bg-surface-container-lowest border-4 border-primary z-10"></div>
+                        <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md hover:border-primary/50 transition-colors">
+                          <div class="flex justify-between items-start mb-2">
+                            <span class="px-3 py-1 bg-surface-container-high text-on-surface-variant rounded-full text-label-sm font-label-sm">Step ${index + 1}</span>
+                          </div>
+                          <h4 class="text-headline-sm font-headline-sm text-on-surface mb-1">${step.title}</h4>
+                          <p class="text-body-md font-body-md text-on-surface-variant">${step.description}</p>
+                        </div>
+                      `;
+                      container.appendChild(div);
+                  });
+              } else {
+                  container.innerHTML = '<p class="text-body-lg">No roadmap steps found.</p>';
+              }
+              
+              document.getElementById('ai-roadmap-loader').classList.add('hidden');
+              document.getElementById('ai-roadmap-loader').classList.remove('flex');
+              container.classList.remove('hidden');
+
+          } catch (err) {
+              alert(err.message);
+              document.getElementById('ai-roadmap-loader').classList.add('hidden');
+              document.getElementById('ai-roadmap-loader').classList.remove('flex');
+              document.getElementById('ai-roadmap-container').classList.remove('hidden');
+          }
+      }
+    </script>
+    <!-- Dashboard Analytics Preview -->
+    <section class="mt-3xl grid grid-cols-1 md:grid-cols-3 gap-lg">
+      <div class="md:col-span-2 bg-inverse-surface text-inverse-on-surface rounded-2xl p-lg overflow-hidden relative min-h-[200px]">
+        <div class="relative z-10">
+          <h3 class="text-headline-sm font-headline-sm mb-2">Skill Intensity Map</h3>
+          <p class="text-body-sm font-body-sm opacity-80 mb-6">Visualize your growth across various tech domains.</p>
+          <div class="flex items-end gap-2 h-24">
+            <div class="w-full bg-primary h-[80%] rounded-t-lg"></div>
+            <div class="w-full bg-primary h-[60%] rounded-t-lg"></div>
+            <div class="w-full bg-primary h-[95%] rounded-t-lg"></div>
+            <div class="w-full bg-primary h-[40%] rounded-t-lg"></div>
+            <div class="w-full bg-primary h-[70%] rounded-t-lg"></div>
+            <div class="w-full bg-primary h-[55%] rounded-t-lg"></div>
+          </div>
+        </div>
+        <div class="absolute -right-8 -bottom-8 opacity-20 transform rotate-12">
+          <span class="material-symbols-outlined" style="font-size: 160px;">insights</span>
+        </div>
+      </div>
+      <div class="bg-surface-container-high rounded-2xl p-lg border border-outline-variant flex flex-col justify-between">
+        <div>
+          <h3 class="text-label-md font-label-md font-bold mb-4">UPCOMING WEBINAR</h3>
+          <p class="text-headline-sm font-headline-sm leading-tight mb-2">AI Ethics in 2024</p>
+          <p class="text-body-sm font-body-sm text-on-surface-variant">Starts in 45 minutes</p>
+        </div>
+        <button class="mt-4 px-4 py-2 border-2 border-primary text-primary rounded-xl font-bold hover:bg-primary hover:text-white transition-all" onclick="alert('Joining webinar room...')">Join Room</button>
+      </div>
+    </section>
+  </div>
+  <!-- Footer -->
+  <footer class="mt-3xl pt-xl pb-xl border-t border-outline-variant bg-surface-container-lowest">
+    <div class="max-w-container-max mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-md">
+      <div class="flex items-center gap-4">
+        <span class="text-label-md font-label-md font-bold text-primary">CareerCompass AI</span>
+        <span class="text-body-sm font-body-sm text-on-surface-variant">© 2026 CareerCompass AI. Developed by Chilukuri Vennela Reddy. All rights reserved.</span>
+      </div>
+          <div class="flex gap-lg">
+      <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all cursor-pointer" onclick="showModal('Privacy Policy', 'Your privacy is our priority. CareerCompass AI collects data solely for personalized skill analysis and career recommendations. We do not sell or share your data with third parties. All interactions are secure and encrypted.')">Privacy Policy</a>
+      <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all cursor-pointer" onclick="showModal('Terms of Service', 'By using CareerCompass AI, you agree to our terms. This platform is designed for educational and career guidance purposes. AI-generated advice should be used as a supplementary tool. Users must not abuse the API or try to extract underlying models.')">Terms of Service</a>
+      <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all" href="mailto:vennelareddy1908@gmail.com">Contact</a>
+    </div>
+    </div>
+  </footer>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full md:hidden z-50 bg-surface border-t border-outline-variant flex justify-around items-center h-16 pb-safe">
+  <a href="chat.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+    <span class="material-symbols-outlined">chat</span>
+    <span class="text-label-sm font-label-sm">Chat</span>
+  </a>
+  <a href="skill-gap.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+    <span class="material-symbols-outlined">query_stats</span>
+    <span class="text-label-sm font-label-sm">Skills</span>
+  </a>
+  <a href="roadmap.html" class="flex flex-col items-center justify-center text-primary font-bold">
+    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">route</span>
+    <span class="text-label-sm font-label-sm">Roadmap</span>
+  </a>
+  <a href="index.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+    <span class="material-symbols-outlined">home</span>
+    <span class="text-label-sm font-label-sm">Home</span>
+  </a>
+</nav>
+<script>
+    document.querySelectorAll('.group').forEach(step => {
+        step.addEventListener('mouseenter', () => {
+            const card = step.querySelector('.bg-surface-container-lowest');
+            if (card && !step.classList.contains('opacity-60')) {
+                card.style.transform = 'translateY(-4px)';
+            }
+        });
+        step.addEventListener('mouseleave', () => {
+            const card = step.querySelector('.bg-surface-container-lowest');
+            if (card) card.style.transform = 'translateY(0)';
+        });
+    });
+</script>
+
+<!-- Global Modal for Policies/Certs -->
+<div id="global-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/50 backdrop-blur-sm transition-opacity">
+  <div class="bg-surface border border-outline-variant p-xl rounded-2xl max-w-lg w-full shadow-2xl transform transition-transform scale-95 opacity-0" id="global-modal-content">
+    <div class="flex justify-between items-start mb-md">
+      <h3 class="text-headline-sm font-headline-sm text-on-surface" id="modal-title">Title</h3>
+      <button onclick="closeModal()" class="text-on-surface-variant hover:text-error transition-colors">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="text-body-md text-on-surface-variant space-y-sm" id="modal-body">
+      Content
+    </div>
+    <div class="mt-lg flex justify-end">
+      <button onclick="closeModal()" class="bg-primary text-on-primary px-lg py-2 rounded-xl font-label-md hover:brightness-95 transition-all">Close</button>
+    </div>
+  </div>
+</div>
+<script>
+  function showModal(title, content) {
+      const modal = document.getElementById('global-modal');
+      const modalContent = document.getElementById('global-modal-content');
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('modal-body').innerHTML = content;
+      
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      // small delay for transition
+      setTimeout(() => {
+          modalContent.classList.remove('scale-95', 'opacity-0');
+          modalContent.classList.add('scale-100', 'opacity-100');
+      }, 10);
+  }
+  function closeModal() {
+      const modal = document.getElementById('global-modal');
+      const modalContent = document.getElementById('global-modal-content');
+      modalContent.classList.remove('scale-100', 'opacity-100');
+      modalContent.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+      }, 200);
+  }
+</script>
+</body>
+</html>

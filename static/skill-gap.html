@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CareerCompass AI | Skill Gap Dashboard</title>
+<meta name="description" content="Visualize your professional evolution and identify strategic growth areas with CareerCompass AI's Skill Gap Dashboard."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .progress-ring__circle {
+        transition: stroke-dashoffset 0.6s ease-in-out;
+        transform: rotate(-90deg);
+        transform-origin: 50% 50%;
+    }
+    .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(229, 231, 235, 0.5);
+    }
+</style>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                "colors": {"inverse-on-surface": "#eaf1ff","on-primary-fixed-variant": "#003ea8","surface": "#f8f9ff","surface-container-low": "#eff4ff","error-container": "#ffdad6","outline": "#737686","primary-container": "#2563eb","surface-container-high": "#dee9fc","secondary-fixed": "#e0e3e6","error": "#ba1a1a","surface-tint": "#0053db","on-surface": "#121c2a","on-tertiary-container": "#eaf0ff","on-secondary-container": "#626567","tertiary-fixed-dim": "#c0c7d6","surface-dim": "#d0dbed","secondary": "#5b5f61","background": "#f8f9ff","on-primary": "#ffffff","tertiary": "#4e5562","tertiary-container": "#666d7b","surface-container": "#e6eeff","inverse-primary": "#b4c5ff","surface-container-lowest": "#ffffff","on-tertiary-fixed": "#151c27","on-secondary": "#ffffff","surface-variant": "#d9e3f6","inverse-surface": "#27313f","on-error": "#ffffff","primary-fixed-dim": "#b4c5ff","surface-bright": "#f8f9ff","on-error-container": "#93000a","on-primary-fixed": "#00174b","on-secondary-fixed": "#191c1e","surface-container-highest": "#d9e3f6","on-background": "#121c2a","primary-fixed": "#dbe1ff","on-primary-container": "#eeefff","on-secondary-fixed-variant": "#44474a","tertiary-fixed": "#dce2f3","on-tertiary-fixed-variant": "#404754","on-tertiary": "#ffffff","secondary-container": "#e0e3e6","primary": "#004ac6","outline-variant": "#c3c6d7","on-surface-variant": "#434655","secondary-fixed-dim": "#c4c7ca"},
+                "borderRadius": {"DEFAULT": "0.25rem","lg": "0.5rem","xl": "0.75rem","full": "9999px"},
+                "spacing": {"xl": "32px","gutter": "24px","base": "4px","2xl": "48px","3xl": "64px","sm": "8px","lg": "24px","md": "16px","container-max": "1280px","xs": "4px"},
+                "fontFamily": {"label-sm": ["Inter"],"body-lg": ["Inter"],"headline-md": ["Inter"],"headline-sm": ["Inter"],"body-sm": ["Inter"],"display-lg-mobile": ["Inter"],"body-md": ["Inter"],"label-md": ["Inter"],"display-lg": ["Inter"]},
+                "fontSize": {"label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],"body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],"headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],"headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],"body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],"display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],"body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],"label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],"display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]}
+            },
+        },
+    }
+</script>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-[280px] hidden md:flex flex-col bg-surface border-r border-outline-variant z-40">
+  <div class="flex flex-col h-full p-lg gap-md">
+    <div class="mb-xl px-2">
+      <a href="index.html"><h1 class="text-headline-md font-headline-md font-bold text-primary">CareerCompass AI</h1></a>
+      <p class="text-label-md font-label-md text-on-surface-variant">AI Career Partner</p>
+    </div>
+    <nav class="flex flex-col gap-sm flex-grow">
+      <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-xl" href="chat.html">
+        <span class="material-symbols-outlined">add_comment</span>
+        <span class="text-label-md font-label-md">New Chat</span>
+      </a>
+      
+      <!-- Active -->
+      <a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-xl" href="skill-gap.html">
+        <span class="material-symbols-outlined">analytics</span>
+        <span class="text-label-md font-label-md">Skill Gap</span>
+      </a>
+      <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-xl" href="roadmap.html">
+        <span class="material-symbols-outlined">timeline</span>
+        <span class="text-label-md font-label-md">Roadmap</span>
+      </a>
+    </nav>
+    <div class="mt-auto flex flex-col gap-sm">
+      <a href="quiz.html" class="block w-full text-center py-md bg-primary-container text-on-primary-container rounded-xl font-label-md hover:opacity-90 transition-all mb-lg">Take AI Quiz</a>
+      <div class="border-t border-outline-variant pt-md flex flex-col gap-xs">
+        <a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-xl" href="settings.html">
+          <span class="material-symbols-outlined">settings</span>
+          <span class="text-label-sm font-label-sm">Settings</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-xl" href="help.html">
+          <span class="material-symbols-outlined">help</span>
+          <span class="text-label-sm font-label-sm">Help</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-[280px] min-h-screen p-lg lg:p-2xl">
+  <!-- Header Section -->
+  <header class="max-w-container-max mx-auto mb-2xl">
+    <div class="flex justify-between items-end">
+      <div>
+        <h2 class="text-display-lg font-display-lg text-on-surface tracking-tight">Skill Gap Analysis</h2>
+        <p class="text-body-lg font-body-lg text-on-surface-variant mt-sm">Visualize your professional evolution and identify strategic growth areas.</p>
+      </div>
+      
+    </div>
+  </header>
+  <!-- Bento Grid Dashboard -->
+  <div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-lg">
+    <!-- Skill Category Charts -->
+    <section class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-lg">
+      <!-- Technical Skills -->
+      <div class="glass-card p-xl rounded-xl flex flex-col items-center justify-between shadow-sm">
+        <div class="w-full flex justify-between items-start mb-lg">
+          <h3 class="text-headline-sm font-headline-sm text-on-surface">Technical Skills</h3>
+          <span class="material-symbols-outlined text-primary">terminal</span>
+        </div>
+        <div class="relative w-48 h-48 flex items-center justify-center">
+          <svg class="w-full h-full" viewBox="0 0 100 100">
+            <circle class="text-surface-container-highest" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+            <circle class="text-primary progress-ring__circle" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="62.8" stroke-linecap="round" stroke-width="8" id="tech-ring"></circle>
+          </svg>
+          <div class="absolute flex flex-col items-center">
+            <span class="text-headline-md font-headline-md">75%</span>
+            <span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">Mastery</span>
+          </div>
+        </div>
+        <div class="w-full mt-lg pt-lg border-t border-outline-variant grid grid-cols-2 gap-md text-center">
+          <div>
+            <p class="text-label-sm font-label-sm text-on-surface-variant">Top Skill</p>
+            <p class="text-body-md font-body-md font-semibold">Python</p>
+          </div>
+          <div>
+            <p class="text-label-sm font-label-sm text-on-surface-variant">Focus Area</p>
+            <p class="text-body-md font-body-md font-semibold">Cloud Arch</p>
+          </div>
+        </div>
+      </div>
+      <!-- Soft Skills -->
+      <div class="glass-card p-xl rounded-xl flex flex-col items-center justify-between shadow-sm">
+        <div class="w-full flex justify-between items-start mb-lg">
+          <h3 class="text-headline-sm font-headline-sm text-on-surface">Soft Skills</h3>
+          <span class="material-symbols-outlined text-primary">groups</span>
+        </div>
+        <div class="relative w-48 h-48 flex items-center justify-center">
+          <svg class="w-full h-full" viewBox="0 0 100 100">
+            <circle class="text-surface-container-highest" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+            <circle class="text-primary progress-ring__circle" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="100.48" stroke-linecap="round" stroke-width="8" id="soft-ring"></circle>
+          </svg>
+          <div class="absolute flex flex-col items-center">
+            <span class="text-headline-md font-headline-md">60%</span>
+            <span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest">Mastery</span>
+          </div>
+        </div>
+        <div class="w-full mt-lg pt-lg border-t border-outline-variant grid grid-cols-2 gap-md text-center">
+          <div>
+            <p class="text-label-sm font-label-sm text-on-surface-variant">Top Skill</p>
+            <p class="text-body-md font-body-md font-semibold">Mentorship</p>
+          </div>
+          <div>
+            <p class="text-label-sm font-label-sm text-on-surface-variant">Focus Area</p>
+            <p class="text-body-md font-body-md font-semibold">Negotiation</p>
+          </div>
+        </div>
+      </div>
+      <!-- Missing Skills List -->
+      <div class="md:col-span-2 glass-card p-xl rounded-xl shadow-sm">
+        <div class="flex justify-between items-center mb-xl">
+          <h3 class="text-headline-sm font-headline-sm text-on-surface">Critical Skill Gaps</h3>
+          <a href="roadmap.html" class="text-primary text-label-md font-label-md hover:underline">View Roadmap</a>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-lg">
+          <div class="flex items-center gap-md p-md bg-surface-container-low rounded-xl border border-outline-variant">
+            <div class="w-10 h-10 bg-error-container text-on-error-container rounded-full flex items-center justify-center">
+              <span class="material-symbols-outlined">priority_high</span>
+            </div>
+            <div>
+              <h4 class="text-body-md font-semibold">Cloud Infrastructure</h4>
+              <p class="text-body-sm text-on-surface-variant">Missing: AWS/Azure Architecture</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-md p-md bg-surface-container-low rounded-xl border border-outline-variant">
+            <div class="w-10 h-10 bg-surface-container-high text-primary rounded-full flex items-center justify-center">
+              <span class="material-symbols-outlined">psychology</span>
+            </div>
+            <div>
+              <h4 class="text-body-md font-semibold">Strategic Decision Making</h4>
+              <p class="text-body-sm text-on-surface-variant">Next Step: Leadership Workshop</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-md p-md bg-surface-container-low rounded-xl border border-outline-variant">
+            <div class="w-10 h-10 bg-surface-container-high text-primary rounded-full flex items-center justify-center">
+              <span class="material-symbols-outlined">security</span>
+            </div>
+            <div>
+              <h4 class="text-body-md font-semibold">Security Compliance</h4>
+              <p class="text-body-sm text-on-surface-variant">Missing: SOC2 Fundamentals</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-md p-md bg-surface-container-low rounded-xl border border-outline-variant">
+            <div class="w-10 h-10 bg-surface-container-high text-primary rounded-full flex items-center justify-center">
+              <span class="material-symbols-outlined">bar_chart</span>
+            </div>
+            <div>
+              <h4 class="text-body-md font-semibold">Data Visualization</h4>
+              <p class="text-body-sm text-on-surface-variant">Next Step: Tableau/D3.js Project</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Recommendations Sidebar -->
+    <aside class="md:col-span-4 flex flex-col gap-lg">
+      <div class="glass-card p-xl rounded-xl shadow-sm h-full">
+        <div class="flex items-center gap-md mb-xl">
+          <span class="material-symbols-outlined text-primary">card_membership</span>
+          <h3 class="text-headline-sm font-headline-sm text-on-surface">Recommended Certs</h3>
+        </div>
+        <ul class="flex flex-col gap-lg">
+          <li class="group">
+            <div class="flex items-start justify-between">
+              <div class="flex-1">
+                <p class="text-label-sm font-label-sm text-primary uppercase mb-1">Top Match</p>
+                <h4 class="text-body-md font-bold group-hover:text-primary transition-colors">AWS Certified Solutions Architect</h4>
+                <p class="text-body-sm text-on-surface-variant">Bridging: Cloud Architecture gap (95% relevance)</p>
+              </div>
+              <span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+            </div>
+          </li>
+          <li class="group">
+            <div class="flex items-start justify-between">
+              <div class="flex-1">
+                <p class="text-label-sm font-label-sm text-on-surface-variant uppercase mb-1">Advanced</p>
+                <h4 class="text-body-md font-bold group-hover:text-primary transition-colors">Google Data Analytics Professional</h4>
+                <p class="text-body-sm text-on-surface-variant">Bridging: Data Viz gap (88% relevance)</p>
+              </div>
+              <span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+            </div>
+          </li>
+        </ul>
+        <div class="mt-2xl pt-xl border-t border-outline-variant">
+          <div class="flex items-center gap-md mb-xl">
+            <span class="material-symbols-outlined text-primary">lightbulb</span>
+            <h3 class="text-headline-sm font-headline-sm text-on-surface">Suggested Projects</h3>
+          </div>
+          <div class="flex flex-col gap-md">
+            <div class="p-md bg-primary-container/10 border border-primary/20 rounded-xl">
+              <h4 class="text-body-md font-bold text-on-surface">Microservices Architecture</h4>
+              <p class="text-body-sm text-on-surface-variant mt-1">Build a containerized API using Kubernetes to master scalability.</p>
+              <div class="mt-md flex gap-sm">
+                <span class="px-2 py-1 bg-surface rounded text-[10px] font-bold uppercase border border-outline-variant">Docker</span>
+                <span class="px-2 py-1 bg-surface rounded text-[10px] font-bold uppercase border border-outline-variant">Go</span>
+              </div>
+            </div>
+            <div class="p-md bg-surface-container-low border border-outline-variant rounded-xl hover:bg-surface-container-high transition-colors cursor-pointer">
+              <h4 class="text-body-md font-bold text-on-surface">Real-time Analytics Panel</h4>
+              <p class="text-body-sm text-on-surface-variant mt-1">Create a dashboard for live data streaming using WebSockets.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+  <!-- Footer -->
+  <footer class="max-w-container-max mx-auto mt-3xl pt-2xl border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-md">
+    <div class="flex items-center gap-md">
+      <span class="text-label-md font-label-md font-bold text-primary">CareerCompass AI</span>
+      <span class="text-label-sm font-label-sm text-on-surface-variant">© 2026 CareerCompass AI. Developed by Chilukuri Vennela Reddy. All rights reserved.</span>
+    </div>
+        <div class="flex gap-lg">
+      <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all cursor-pointer" onclick="showModal('Privacy Policy', 'Your privacy is our priority. CareerCompass AI collects data solely for personalized skill analysis and career recommendations. We do not sell or share your data with third parties. All interactions are secure and encrypted.')">Privacy Policy</a>
+      <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all cursor-pointer" onclick="showModal('Terms of Service', 'By using CareerCompass AI, you agree to our terms. This platform is designed for educational and career guidance purposes. AI-generated advice should be used as a supplementary tool. Users must not abuse the API or try to extract underlying models.')">Terms of Service</a>
+      <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all" href="mailto:vennelareddy1908@gmail.com">Contact</a>
+    </div>
+  </footer>
+</main>
+<!-- BottomNavBar for Mobile -->
+<nav class="fixed bottom-0 w-full md:hidden z-50 border-t border-outline-variant bg-surface flex justify-around items-center h-16 pb-safe">
+  <a href="chat.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+    <span class="material-symbols-outlined">chat</span>
+    <span class="text-label-sm font-label-sm">Chat</span>
+  </a>
+  <a href="skill-gap.html" class="flex flex-col items-center justify-center text-primary font-bold">
+    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">query_stats</span>
+    <span class="text-label-sm font-label-sm">Skills</span>
+  </a>
+  <a href="roadmap.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+    <span class="material-symbols-outlined">route</span>
+    <span class="text-label-sm font-label-sm">Roadmap</span>
+  </a>
+  <a href="index.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+    <span class="material-symbols-outlined">home</span>
+    <span class="text-label-sm font-label-sm">Home</span>
+  </a>
+</nav>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const rings = document.querySelectorAll('.progress-ring__circle');
+        const quizScore = localStorage.getItem('quizScore');
+        const quizGaps = JSON.parse(localStorage.getItem('quizGaps') || '[]');
+        const quizRole = localStorage.getItem('quizRole');
+        const quizSkills = localStorage.getItem('quizSkills');
+
+        // Update Rings based on Score if available
+        let techScore = 75;
+        let softScore = 60;
+        
+        if (quizScore) {
+            const scoreVal = parseInt(quizScore);
+            techScore = Math.min(100, scoreVal * 20); // 5 questions -> 20% each roughly
+            softScore = Math.min(100, Math.max(0, techScore - 10)); // Just arbitrary mock for soft skills
+            
+            const techText = document.getElementById('tech-ring').closest('div').querySelector('.absolute span');
+            const softText = document.getElementById('soft-ring').closest('div').querySelector('.absolute span');
+            if (techText) techText.innerText = `${techScore}%`;
+            if (softText) softText.innerText = `${softScore}%`;
+            
+            if (quizRole) {
+                document.querySelector('h2').innerText = `${quizRole} Analysis`;
+            }
+        }
+
+        if (quizSkills) {
+            const skillArray = quizSkills.split(',').map(s => s.trim());
+            if (skillArray.length > 0 && skillArray[0]) {
+                const labels = document.querySelectorAll('.grid.grid-cols-2 p.font-semibold');
+                if (labels && labels.length >= 2) {
+                    labels[0].innerText = skillArray[0].substring(0, 15);
+                }
+            }
+        }
+
+        if (quizGaps && quizGaps.length > 0) {
+            const labels = document.querySelectorAll('.grid.grid-cols-2 p.font-semibold');
+            if (labels && labels.length >= 2) {
+                const gapName = quizGaps[0].split(':')[0] || 'Skill Gap';
+                labels[1].innerText = gapName.substring(0, 15);
+            }
+        }
+
+        rings.forEach(ring => {
+            const radius = ring.r.baseVal.value;
+            const circumference = radius * 2 * Math.PI;
+            ring.style.strokeDasharray = `${circumference} ${circumference}`;
+            ring.style.strokeDashoffset = circumference;
+            
+            const isTech = ring.id === 'tech-ring';
+            const targetScore = isTech ? techScore : softScore;
+            const offset = circumference - (targetScore / 100) * circumference;
+
+            setTimeout(() => { ring.style.strokeDashoffset = offset; }, 300);
+        });
+
+        // Update Gaps List if available
+        if (quizGaps && quizGaps.length > 0) {
+            const gapsContainer = document.querySelector('.md\\:col-span-2 > .grid');
+            if (gapsContainer) {
+                gapsContainer.innerHTML = '';
+                const icons = ['priority_high', 'psychology', 'security', 'bar_chart'];
+                quizGaps.forEach((gap, index) => {
+                    const icon = icons[index % icons.length];
+                    const div = document.createElement('div');
+                    div.className = "flex items-center gap-md p-md bg-surface-container-low rounded-xl border border-outline-variant";
+                    div.innerHTML = `
+                        <div class="w-10 h-10 bg-error-container text-on-error-container rounded-full flex items-center justify-center">
+                            <span class="material-symbols-outlined">${icon}</span>
+                        </div>
+                        <div>
+                            <h4 class="text-body-md font-semibold">${gap.split(':')[0] || 'Skill Gap'}</h4>
+                            <p class="text-body-sm text-on-surface-variant">${gap.split(':').slice(1).join(':') || gap}</p>
+                        </div>
+                    `;
+                    gapsContainer.appendChild(div);
+                });
+            }
+
+            // Update Recommendation Certs based on gaps
+            const certsContainer = document.querySelector('ul.flex-col');
+            if (certsContainer) {
+                certsContainer.innerHTML = '';
+                quizGaps.slice(0, 2).forEach((gap, index) => {
+                    const title = `Recommended Course ${index + 1}`;
+                    const desc = gap;
+                    const li = document.createElement('li');
+                    li.className = "group cursor-pointer";
+                    li.onclick = () => showModal(title, `This certification covers the necessary material to bridge your gap in: ${desc}. We highly recommend starting this to improve your score!`);
+                    li.innerHTML = `
+                        <div class="flex items-start justify-between p-2 rounded-lg hover:bg-surface-container-low transition-colors">
+                            <div class="flex-1">
+                                <p class="text-label-sm font-label-sm text-primary uppercase mb-1">Top Match</p>
+                                <h4 class="text-body-md font-bold group-hover:text-primary transition-colors">${title}</h4>
+                                <p class="text-body-sm text-on-surface-variant">Bridging: ${desc.substring(0, 40)}...</p>
+                            </div>
+                            <span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+                        </div>
+                    `;
+                    certsContainer.appendChild(li);
+                });
+            }
+        } else {
+            // Make existing certs clickable if no quiz data
+            const certs = document.querySelectorAll('ul.flex-col > li');
+            certs.forEach(cert => {
+                cert.classList.add('cursor-pointer');
+                cert.onclick = () => showModal('Certification Info', 'Clicking this certification will direct you to a specialized curriculum designed to bridge this specific skill gap. Let us know if you want to enroll!');
+            });
+        }
+    });
+</script>
+
+<!-- Global Modal for Policies/Certs -->
+<div id="global-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/50 backdrop-blur-sm transition-opacity">
+  <div class="bg-surface border border-outline-variant p-xl rounded-2xl max-w-lg w-full shadow-2xl transform transition-transform scale-95 opacity-0" id="global-modal-content">
+    <div class="flex justify-between items-start mb-md">
+      <h3 class="text-headline-sm font-headline-sm text-on-surface" id="modal-title">Title</h3>
+      <button onclick="closeModal()" class="text-on-surface-variant hover:text-error transition-colors">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="text-body-md text-on-surface-variant space-y-sm" id="modal-body">
+      Content
+    </div>
+    <div class="mt-lg flex justify-end">
+      <button onclick="closeModal()" class="bg-primary text-on-primary px-lg py-2 rounded-xl font-label-md hover:brightness-95 transition-all">Close</button>
+    </div>
+  </div>
+</div>
+<script>
+  function showModal(title, content) {
+      const modal = document.getElementById('global-modal');
+      const modalContent = document.getElementById('global-modal-content');
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('modal-body').innerHTML = content;
+      
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      // small delay for transition
+      setTimeout(() => {
+          modalContent.classList.remove('scale-95', 'opacity-0');
+          modalContent.classList.add('scale-100', 'opacity-100');
+      }, 10);
+  }
+  function closeModal() {
+      const modal = document.getElementById('global-modal');
+      const modalContent = document.getElementById('global-modal-content');
+      modalContent.classList.remove('scale-100', 'opacity-100');
+      modalContent.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+      }, 200);
+  }
+</script>
+</body>
+</html>

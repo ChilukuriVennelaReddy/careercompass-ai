@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CareerCompass AI | Career Recommendations</title>
+<meta name="description" content="Explore AI-powered career recommendations personalized to your skills in Python, Data Engineering, and Cloud Architecture."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-on-surface": "#eaf1ff","on-primary-fixed-variant": "#003ea8","surface": "#f8f9ff","surface-container-low": "#eff4ff","error-container": "#ffdad6","outline": "#737686","primary-container": "#2563eb","surface-container-high": "#dee9fc","secondary-fixed": "#e0e3e6","error": "#ba1a1a","surface-tint": "#0053db","on-surface": "#121c2a","on-tertiary-container": "#eaf0ff","on-secondary-container": "#626567","tertiary-fixed-dim": "#c0c7d6","surface-dim": "#d0dbed","secondary": "#5b5f61","background": "#f8f9ff","on-primary": "#ffffff","tertiary": "#4e5562","tertiary-container": "#666d7b","surface-container": "#e6eeff","inverse-primary": "#b4c5ff","surface-container-lowest": "#ffffff","on-tertiary-fixed": "#151c27","on-secondary": "#ffffff","surface-variant": "#d9e3f6","inverse-surface": "#27313f","on-error": "#ffffff","primary-fixed-dim": "#b4c5ff","surface-bright": "#f8f9ff","on-error-container": "#93000a","on-primary-fixed": "#00174b","on-secondary-fixed": "#191c1e","surface-container-highest": "#d9e3f6","on-background": "#121c2a","primary-fixed": "#dbe1ff","on-primary-container": "#eeefff","on-secondary-fixed-variant": "#44474a","tertiary-fixed": "#dce2f3","on-tertiary-fixed-variant": "#404754","on-tertiary": "#ffffff","secondary-container": "#e0e3e6","primary": "#004ac6","outline-variant": "#c3c6d7","on-surface-variant": "#434655","secondary-fixed-dim": "#c4c7ca"
+          },
+          "borderRadius": {"DEFAULT": "0.25rem","lg": "0.5rem","xl": "0.75rem","full": "9999px"},
+          "spacing": {"xl": "32px","gutter": "24px","base": "4px","2xl": "48px","3xl": "64px","sm": "8px","lg": "24px","md": "16px","container-max": "1280px","xs": "4px"},
+          "fontFamily": {"label-sm": ["Inter"],"body-lg": ["Inter"],"headline-md": ["Inter"],"headline-sm": ["Inter"],"body-sm": ["Inter"],"display-lg-mobile": ["Inter"],"body-md": ["Inter"],"label-md": ["Inter"],"display-lg": ["Inter"]},
+          "fontSize": {"label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],"body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],"headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],"headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],"body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],"display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],"body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],"label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],"display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]}
+        },
+      },
+    }
+</script>
+<style>
+    body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .custom-shadow { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); }
+    .custom-shadow-hover:hover { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+</style>
+</head>
+<body class="text-on-surface bg-surface overflow-x-hidden">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full w-[280px] hidden md:flex flex-col bg-surface border-r border-outline-variant z-40">
+  <div class="flex flex-col h-full p-lg gap-md">
+    <div class="flex flex-col gap-xs mb-lg">
+      <a href="index.html"><span class="text-headline-md font-headline-md font-bold text-primary">CareerCompass AI</span></a>
+      <span class="text-label-md font-label-md text-on-surface-variant">AI Career Partner</span>
+    </div>
+    <nav class="flex-grow space-y-sm">
+      <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-xl" href="chat.html">
+        <span class="material-symbols-outlined">add_comment</span>
+        <span class="text-label-md font-label-md">New Chat</span>
+      </a>
+      
+      <a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-xl" href="skill-gap.html">
+        <span class="material-symbols-outlined">analytics</span>
+        <span class="text-label-md font-label-md">Skill Gap</span>
+      </a>
+      <!-- Active -->
+      <a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-xl" href="recommendations.html">
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">timeline</span>
+        <span class="text-label-md font-label-md">Roadmap</span>
+      </a>
+    </nav>
+    <div class="mt-auto space-y-sm pt-lg border-t border-outline-variant">
+      <div class="bg-primary-container/10 p-md rounded-xl mb-md">
+        <p class="text-label-sm font-label-sm text-primary mb-sm">Unlock full potential</p>
+        <a href="quiz.html" class="block w-full text-center py-2 bg-primary text-on-primary rounded-lg text-label-md font-label-md hover:brightness-110 transition-all">Take AI Quiz</a>
+      </div>
+      <a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-xl" href="settings.html">
+        <span class="material-symbols-outlined">settings</span>
+        <span class="text-label-md font-label-md">Settings</span>
+      </a>
+      <a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-high transition-colors duration-200 rounded-xl" href="help.html">
+        <span class="material-symbols-outlined">help</span>
+        <span class="text-label-md font-label-md">Help</span>
+      </a>
+    </div>
+  </div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-[280px] min-h-screen p-gutter lg:p-xl">
+  <!-- Header Section -->
+  <header class="max-w-6xl mx-auto mb-xl flex flex-col md:flex-row md:items-end justify-between gap-md">
+    <div>
+      <h1 class="font-display-lg text-display-lg text-on-surface tracking-tight">Your Career Roadmap</h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Personalized opportunities based on your skills in Python, Data Engineering, and Cloud Architecture.</p>
+    </div>
+    <div class="flex items-center gap-sm">
+      <div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9yFAsdU-Lrp8m8Wt75fKPQyc0hHmdPGXk93K74CPajAvEm4akfQoSwS1zgb3Sznq27OqAIAR6uyiHUe8_ifI96iboxyp6D2-hE2gAC6oXCpLX7O4sC1HtMN3qBs-Di2G21jaVguwlDuVbu1f41TCN4Wq3z1Rs0unpQo7wltotZPwcNY33gRKwNj32JR30Q0UzI5Nebluzdweu7zz9oiRYMluJP0_iAHj4KxbqpEuvtfazyhF1mLwC" alt="User"/>
+      </div>
+    </div>
+  </header>
+  <!-- Career Cards Grid -->
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg mb-2xl">
+    <!-- AI Engineer Card (Primary) -->
+    <div class="lg:col-span-2 group bg-surface-container-lowest rounded-xl p-lg custom-shadow custom-shadow-hover transition-all duration-300 border border-outline-variant/30 flex flex-col md:flex-row gap-lg">
+      <div class="w-full md:w-1/3 aspect-square md:aspect-auto rounded-lg overflow-hidden bg-surface-container-high">
+        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5XKTv4iFrptF_I1ZpTba2p3gCKJWkrjLVClWgKVFuCyct5L7m9oQGQ_eN0djKWmNEa-nNG0M4BjEnenurnVPr07M9S0bJY_x-6CIY98bVEunrinndxJvWDMu_J35dFwbnGAMCNFsprzFjdGYFOB-i3Um273aGU-_jFyM_N8upmDtUlPGxS1kLb8DaDDOuhz5SiBimVhqdEnjTEmKScvIAbKDXjC2z8FlphxAdulJ0FW6aW87VXhcJ" alt="AI Engineer"/>
+      </div>
+      <div class="flex-1 flex flex-col">
+        <div class="flex justify-between items-start mb-sm">
+          <div>
+            <span class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm mb-2">Top Recommendation</span>
+            <h2 class="font-headline-md text-headline-md text-on-surface">AI Engineer</h2>
+          </div>
+          <div class="text-right">
+            <span class="text-display-lg-mobile font-display-lg-mobile text-primary">98%</span>
+            <p class="text-label-sm font-label-sm text-on-surface-variant">Match</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-md mb-lg">
+          <div>
+            <p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Salary Range</p>
+            <p class="text-body-md font-body-md font-semibold">$140k - $210k</p>
+          </div>
+          <div>
+            <p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Growth Outlook</p>
+            <p class="text-body-md font-body-md font-semibold text-primary">Exceptional (High)</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-xs mb-lg">
+          <span class="px-3 py-1 bg-surface-container-high rounded-full text-label-md font-label-md">LLMs</span>
+          <span class="px-3 py-1 bg-surface-container-high rounded-full text-label-md font-label-md">PyTorch</span>
+          <span class="px-3 py-1 bg-surface-container-high rounded-full text-label-md font-label-md">Vector DBs</span>
+          <span class="px-3 py-1 bg-surface-container-high rounded-full text-label-md font-label-md">MLOps</span>
+        </div>
+        <div class="mt-auto">
+          <a href="roadmap.html" class="block w-full py-3 bg-primary text-on-primary rounded-xl font-label-md text-label-md hover:bg-primary/90 transition-colors text-center">Start AI Learning Path</a>
+        </div>
+      </div>
+    </div>
+    <!-- Data Scientist Card -->
+    <div class="group bg-surface-container-lowest rounded-xl p-lg custom-shadow custom-shadow-hover transition-all duration-300 border border-outline-variant/30">
+      <div class="flex justify-between items-center mb-md">
+        <div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-3xl">monitoring</span>
+        </div>
+        <div class="bg-surface-container text-on-surface px-3 py-1 rounded-full font-label-sm text-label-sm">92% Match</div>
+      </div>
+      <h3 class="font-headline-sm text-headline-sm mb-2">Data Scientist</h3>
+      <p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Bridge the gap between raw information and strategic business intelligence.</p>
+      <div class="space-y-sm mb-lg">
+        <div class="flex justify-between text-label-md font-label-md">
+          <span class="text-on-surface-variant">Avg Salary</span>
+          <span class="text-on-surface font-semibold">$120k - $175k</span>
+        </div>
+        <div class="flex justify-between text-label-md font-label-md">
+          <span class="text-on-surface-variant">Outlook</span>
+          <span class="text-on-surface font-semibold">High</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-xs mb-lg">
+        <span class="px-2 py-1 bg-surface-container-low text-on-surface-variant rounded text-label-sm font-label-sm">Statistics</span>
+        <span class="px-2 py-1 bg-surface-container-low text-on-surface-variant rounded text-label-sm font-label-sm">R</span>
+        <span class="px-2 py-1 bg-surface-container-low text-on-surface-variant rounded text-label-sm font-label-sm">Pandas</span>
+      </div>
+      <a href="roadmap.html" class="block w-full py-2 bg-secondary-container text-on-secondary-fixed-variant rounded-lg font-label-md text-label-md hover:bg-secondary-container/80 transition-colors text-center">Learn More</a>
+    </div>
+    <!-- ML Engineer -->
+    <div class="group bg-surface-container-lowest rounded-xl p-lg custom-shadow custom-shadow-hover transition-all duration-300 border border-outline-variant/30">
+      <div class="flex justify-between items-center mb-md">
+        <div class="w-12 h-12 rounded-xl bg-primary-container/10 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-3xl">psychology</span>
+        </div>
+        <div class="bg-surface-container text-on-surface px-3 py-1 rounded-full font-label-sm text-label-sm">95% Match</div>
+      </div>
+      <h3 class="font-headline-sm text-headline-sm mb-2">ML Engineer</h3>
+      <p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Design and implement scalable machine learning systems and data pipelines.</p>
+      <div class="space-y-sm mb-lg">
+        <div class="flex justify-between text-label-md font-label-md">
+          <span class="text-on-surface-variant">Avg Salary</span>
+          <span class="text-on-surface font-semibold">$135k - $190k</span>
+        </div>
+        <div class="flex justify-between text-label-md font-label-md">
+          <span class="text-on-surface-variant">Outlook</span>
+          <span class="text-on-surface font-semibold">High</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-xs mb-lg">
+        <span class="px-2 py-1 bg-surface-container-low text-on-surface-variant rounded text-label-sm font-label-sm">Scikit-learn</span>
+        <span class="px-2 py-1 bg-surface-container-low text-on-surface-variant rounded text-label-sm font-label-sm">AWS</span>
+      </div>
+      <a href="roadmap.html" class="block w-full py-2 bg-secondary-container text-on-secondary-fixed-variant rounded-lg font-label-md text-label-md hover:bg-secondary-container/80 transition-colors text-center">Learn More</a>
+    </div>
+    <!-- Cloud Engineer -->
+    <div class="group bg-surface-container-lowest rounded-xl p-lg custom-shadow custom-shadow-hover transition-all duration-300 border border-outline-variant/30">
+      <div class="flex justify-between items-center mb-md">
+        <div class="w-12 h-12 rounded-xl bg-tertiary-container/10 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-3xl">cloud</span>
+        </div>
+        <div class="bg-surface-container text-on-surface px-3 py-1 rounded-full font-label-sm text-label-sm">88% Match</div>
+      </div>
+      <h3 class="font-headline-sm text-headline-sm mb-2">Cloud Engineer</h3>
+      <p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Architect the future of distributed systems and scalable infrastructure.</p>
+      <div class="space-y-sm mb-lg">
+        <div class="flex justify-between text-label-md font-label-md">
+          <span class="text-on-surface-variant">Avg Salary</span>
+          <span class="text-on-surface font-semibold">$125k - $185k</span>
+        </div>
+        <div class="flex justify-between text-label-md font-label-md">
+          <span class="text-on-surface-variant">Outlook</span>
+          <span class="text-on-surface font-semibold">High</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-xs mb-lg">
+        <span class="px-2 py-1 bg-surface-container-low text-on-surface-variant rounded text-label-sm font-label-sm">Kubernetes</span>
+        <span class="px-2 py-1 bg-surface-container-low text-on-surface-variant rounded text-label-sm font-label-sm">Azure</span>
+      </div>
+      <a href="roadmap.html" class="block w-full py-2 bg-secondary-container text-on-secondary-fixed-variant rounded-lg font-label-md text-label-md hover:bg-secondary-container/80 transition-colors text-center">Learn More</a>
+    </div>
+    <!-- Software Developer -->
+    <div class="group bg-surface-container-lowest rounded-xl p-lg custom-shadow custom-shadow-hover transition-all duration-300 border border-outline-variant/30">
+      <div class="flex justify-between items-center mb-md">
+        <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-3xl">code</span>
+        </div>
+        <div class="bg-surface-container text-on-surface px-3 py-1 rounded-full font-label-sm text-label-sm">85% Match</div>
+      </div>
+      <h3 class="font-headline-sm text-headline-sm mb-2">Software Developer</h3>
+      <p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Build robust, user-centric applications using modern frameworks and patterns.</p>
+      <div class="space-y-sm mb-lg">
+        <div class="flex justify-between text-label-md font-label-md">
+          <span class="text-on-surface-variant">Avg Salary</span>
+          <span class="text-on-surface font-semibold">$110k - $160k</span>
+        </div>
+        <div class="flex justify-between text-label-md font-label-md">
+          <span class="text-on-surface-variant">Outlook</span>
+          <span class="text-on-surface font-semibold">Steady</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-xs mb-lg">
+        <span class="px-2 py-1 bg-surface-container-low text-on-surface-variant rounded text-label-sm font-label-sm">React</span>
+        <span class="px-2 py-1 bg-surface-container-low text-on-surface-variant rounded text-label-sm font-label-sm">Node.js</span>
+        <span class="px-2 py-1 bg-surface-container-low text-on-surface-variant rounded text-label-sm font-label-sm">Go</span>
+      </div>
+      <a href="roadmap.html" class="block w-full py-2 bg-secondary-container text-on-secondary-fixed-variant rounded-lg font-label-md text-label-md hover:bg-secondary-container/80 transition-colors text-center">Learn More</a>
+    </div>
+  </div>
+  <!-- Career Insight Section -->
+  <section class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-lg items-center bg-primary text-on-primary rounded-2xl p-xl relative overflow-hidden">
+    <div class="relative z-10">
+      <h2 class="font-headline-md text-headline-md mb-md">Accelerate your transition.</h2>
+      <p class="font-body-lg text-body-lg text-on-primary-container mb-lg max-w-md">Our AI analysis suggests that by completing 3 specific modules in MLOps, your match for AI Engineer increases to 99%.</p>
+      <a href="skill-gap.html" class="inline-block px-gutter py-3 bg-on-primary text-primary font-label-md text-label-md rounded-full shadow-lg hover:bg-surface-bright transition-all">View Skill-Gap Report</a>
+    </div>
+    <div class="relative h-64 md:h-full flex items-center justify-center">
+      <div class="w-full max-w-xs aspect-square bg-on-primary/10 rounded-full border border-on-primary/20 flex items-center justify-center">
+        <div class="w-3/4 aspect-square bg-on-primary/20 rounded-full flex items-center justify-center animate-pulse">
+          <span class="material-symbols-outlined text-display-lg text-on-primary">auto_awesome</span>
+        </div>
+      </div>
+    </div>
+    <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-on-primary/5 rounded-full blur-3xl"></div>
+  </section>
+  <!-- Footer -->
+  <footer class="mt-2xl py-xl border-t border-outline-variant">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-md max-w-6xl mx-auto">
+      <div class="flex flex-col items-center md:items-start">
+        <span class="text-label-md font-label-md font-bold text-primary mb-1">CareerCompass AI</span>
+        <p class="text-body-sm font-body-sm text-on-surface-variant">© 2026 CareerCompass AI. Developed by Chilukuri Vennela Reddy. All rights reserved.</p>
+      </div>
+          <div class="flex gap-lg">
+      <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all cursor-pointer" onclick="showModal('Privacy Policy', 'Your privacy is our priority. CareerCompass AI collects data solely for personalized skill analysis and career recommendations. We do not sell or share your data with third parties. All interactions are secure and encrypted.')">Privacy Policy</a>
+      <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all cursor-pointer" onclick="showModal('Terms of Service', 'By using CareerCompass AI, you agree to our terms. This platform is designed for educational and career guidance purposes. AI-generated advice should be used as a supplementary tool. Users must not abuse the API or try to extract underlying models.')">Terms of Service</a>
+      <a class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all" href="mailto:vennelareddy1908@gmail.com">Contact</a>
+    </div>
+    </div>
+  </footer>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full md:hidden z-50 bg-surface border-t border-outline-variant shadow-lg flex justify-around items-center h-16 pb-safe">
+  <a href="chat.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+    <span class="material-symbols-outlined">chat</span>
+    <span class="text-label-sm font-label-sm">Chat</span>
+  </a>
+  <a href="skill-gap.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+    <span class="material-symbols-outlined">query_stats</span>
+    <span class="text-label-sm font-label-sm">Skills</span>
+  </a>
+  <a href="roadmap.html" class="flex flex-col items-center justify-center text-primary font-bold">
+    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">route</span>
+    <span class="text-label-sm font-label-sm">Roadmap</span>
+  </a>
+  <a href="index.html" class="flex flex-col items-center justify-center text-on-surface-variant">
+    <span class="material-symbols-outlined">home</span>
+    <span class="text-label-sm font-label-sm">Home</span>
+  </a>
+</nav>
+<script>
+    document.querySelectorAll('button').forEach(button => {
+        button.addEventListener('mousedown', () => button.style.transform = 'scale(0.97)');
+        button.addEventListener('mouseup', () => button.style.transform = 'scale(1)');
+        button.addEventListener('mouseleave', () => button.style.transform = 'scale(1)');
+    });
+</script>
+
+<!-- Global Modal for Policies/Certs -->
+<div id="global-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/50 backdrop-blur-sm transition-opacity">
+  <div class="bg-surface border border-outline-variant p-xl rounded-2xl max-w-lg w-full shadow-2xl transform transition-transform scale-95 opacity-0" id="global-modal-content">
+    <div class="flex justify-between items-start mb-md">
+      <h3 class="text-headline-sm font-headline-sm text-on-surface" id="modal-title">Title</h3>
+      <button onclick="closeModal()" class="text-on-surface-variant hover:text-error transition-colors">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="text-body-md text-on-surface-variant space-y-sm" id="modal-body">
+      Content
+    </div>
+    <div class="mt-lg flex justify-end">
+      <button onclick="closeModal()" class="bg-primary text-on-primary px-lg py-2 rounded-xl font-label-md hover:brightness-95 transition-all">Close</button>
+    </div>
+  </div>
+</div>
+<script>
+  function showModal(title, content) {
+      const modal = document.getElementById('global-modal');
+      const modalContent = document.getElementById('global-modal-content');
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('modal-body').innerHTML = content;
+      
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      // small delay for transition
+      setTimeout(() => {
+          modalContent.classList.remove('scale-95', 'opacity-0');
+          modalContent.classList.add('scale-100', 'opacity-100');
+      }, 10);
+  }
+  function closeModal() {
+      const modal = document.getElementById('global-modal');
+      const modalContent = document.getElementById('global-modal-content');
+      modalContent.classList.remove('scale-100', 'opacity-100');
+      modalContent.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+      }, 200);
+  }
+</script>
+</body>
+</html>
